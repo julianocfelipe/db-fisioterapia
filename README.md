@@ -4,7 +4,7 @@ Trabalho Final de banco de dados de estruturação de uma aplicação médica:
 
 ## Projeto Sistema de Fisio
 
-### Grupo A
+### Grupo B
 
 ### Integrantes:
 Juliano C. Felipe - [@julianocfelipe](https://github.com/julianocfelipe)<br>
