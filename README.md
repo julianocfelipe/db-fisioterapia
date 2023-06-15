@@ -39,7 +39,7 @@ Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
 Linguagem <br>
 <code>código fonte da aplicação</code>
 
-![exemplo](Images/1.jpg)
-![exemplo](Images/2.jpg)
-![exemplo](Images/3.jpg)
-![exemplo](Images/4.jpg)
+![exemplo](images/1.jpg)
+![exemplo](images/2.jpg)
+![exemplo](images/3.jpg)
+![exemplo](images/4.jpg)
