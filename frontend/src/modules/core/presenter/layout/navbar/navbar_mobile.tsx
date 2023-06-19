@@ -63,7 +63,7 @@ const NavbarMobile: React.FC = () => {
               bg: 'pink.300',
             }}
           >
-            Novo Agendamento
+            Agendamento +
           </Button>
         </Flex>
       </Flex>

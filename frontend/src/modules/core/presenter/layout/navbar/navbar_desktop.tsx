@@ -10,18 +10,21 @@ import {
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
+  useColorMode,
 } from '@chakra-ui/react';
-import { ChevronRightIcon } from '@chakra-ui/icons';
+import { ChevronRightIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 import Logo from '@/assets/images/logo.svg';
 import React from 'react';
 import NAVIGATION_ITEMS, { NavItem } from './navbar_item';
 
 const NavbarDesktop: React.FC = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <>
       <Flex
-        bg={useColorModeValue('white', 'gray.800')}
+        bg={useColorModeValue('white', '#212121')}
         color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
         py={{ base: 2 }}
@@ -40,20 +43,7 @@ const NavbarDesktop: React.FC = () => {
         </Flex>
 
         <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
-          <Button
-            as={'a'}
-            display={{ md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'pink.400'}
-            href={'#'}
-            _hover={{
-              bg: 'pink.300',
-            }}
-          >
-            Sign Up
-          </Button>
+          <Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}</Button>
         </Stack>
       </Flex>
     </>

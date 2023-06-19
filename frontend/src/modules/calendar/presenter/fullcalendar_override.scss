@@ -1,0 +1,55 @@
+.fc {
+  &-toolbar-title {
+    font-family: monospace;
+    font-weight: 900;
+    color: #ff433a;
+  }
+
+  &-col-header-cell {
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  &-daygrid-day:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.038);
+  }
+
+  &-button {
+    color: red !important;
+    background: transparent !important;
+    border: 1px solid red !important;
+  }
+}
+
+.fc-day {
+  &-sun {
+    background-color: #f8f8f8;
+  }
+
+  &-sat {
+    background-color: #f8f8f8;
+  }
+
+  &-today {
+    background-color: #ffccbc !important;
+  }
+}
+
+.fc-dark {
+  border-color: red !important;
+
+  .fc-day {
+    &-sun,
+    &-sat {
+      background-color: rgba(255, 255, 255, 0.04);
+    }
+  }
+
+  .fc-col-header-cell {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .fc-day-today {
+    background-color: #e53e3e !important;
+  }
+}
