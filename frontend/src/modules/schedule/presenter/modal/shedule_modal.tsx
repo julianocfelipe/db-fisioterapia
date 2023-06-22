@@ -23,15 +23,15 @@ const ScheduleModal: React.FC = () => {
       <Modal isOpen={store.isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>Cadastro de Agendamento</ModalHeader>
           <ModalCloseButton />
           <ModalBody></ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
+            <Button variant="ghost" mr={3} onClick={onClose}>
+              Cancelar
             </Button>
-            <Button variant="ghost">Secondary Action</Button>
+            <Button colorScheme="red">Registrar</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
