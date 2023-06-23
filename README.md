@@ -17,7 +17,7 @@ Paulo Cesar Dal Ponte - [@pauloDalponte](https://github.com/pauloDalponte)<br>
 Pedro Guedez - [@Pedroguedez](https://github.com/Pedroguedez)<br>
 
 ### Modelo Físico:
-Utilizado https://dbdiagram.io/<br>
+Disponível aqui [dbdiagram.io](https://dbdiagram.io/d/648b9d0d722eb774940d197b)<br>
 Arquivo fonte: <code>link pro arquivo</code><br>
 <code>Imagem</code>
   
