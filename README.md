@@ -34,7 +34,7 @@ Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
 
 ### Objetos de BD (stored procedure, triggers e functions):
 <code>1 arquivo SQL por objeto</code>
-  
+  [trigger](TRIGGER.sql)
 ### Código do sistema:
 Linguagem <br>
 <code>código fonte da aplicação</code>
