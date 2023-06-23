@@ -1,0 +1,1 @@
+INSERT INTO physiotherapists (id, name, crf, phone, address_id) VALUES ('', '')

@@ -1,0 +1,1 @@
+INSERT INTO addresses (id, cap,state, city, neighbourhood, number, complement, reference) VALUES ('','')
