@@ -12,6 +12,7 @@
   "dependencies": {
     "@chakra-ui/icons": "^2.0.19",
     "@chakra-ui/react": "^2.7.0",
+    "@choc-ui/chakra-autocomplete": "^5.1.5",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fullcalendar/core": "^6.1.8",
@@ -19,6 +20,7 @@
     "@fullcalendar/interaction": "^6.1.8",
     "@fullcalendar/react": "^6.1.8",
     "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.4.0",
     "framer-motion": "^10.12.16",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

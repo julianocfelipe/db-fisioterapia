@@ -1,0 +1,11 @@
+enum HttpStatus {
+  UNAUTHORIZED = 401,
+  UNPROCESSABLE_ENTITY = 422,
+  FORBIDDEN = 403,
+  NOT_FOUND = 404,
+  PRECONDITION_FAILED = 412,
+  OK = 200,
+  SERVER_ERROR = 500,
+}
+
+export default HttpStatus;

@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react';
 import React, { useContext } from 'react';
 import { ScheduleContext } from '../store/schedule_store';
+import RegisterForm from './register_form';
 
 const ScheduleModal: React.FC = () => {
   const store = useContext(ScheduleContext);
@@ -25,7 +26,9 @@ const ScheduleModal: React.FC = () => {
         <ModalContent>
           <ModalHeader>Cadastro de Agendamento</ModalHeader>
           <ModalCloseButton />
-          <ModalBody></ModalBody>
+          <ModalBody minW={"80vw"}>
+            <RegisterForm/>
+          </ModalBody>
 
           <ModalFooter>
             <Button variant="ghost" mr={3} onClick={onClose}>
