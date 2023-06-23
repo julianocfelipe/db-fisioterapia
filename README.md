@@ -22,7 +22,7 @@ Arquivo fonte: <code>link pro arquivo</code><br>
 <code>Imagem</code>
   
 ### Dicionário de Dados:
-<code>Excel ou tabela do Github (markdown)</code>
+<code>[Excel ou tabela do Github (markdown)](https://docs.google.com/spreadsheets/d/1phXG6EE9C7zEvXPEoYZQyaawydbmM0zH2jhMTZtDY78/edit#gid=1087835131)</code>
 
 ### Scripts DDL Criação do Database:
 Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
