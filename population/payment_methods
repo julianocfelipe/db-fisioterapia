@@ -1,0 +1,5 @@
+INSERT INTO payment_methods (id, description) VALUES (1, 'Cartão de Crédito')
+INSERT INTO payment_methods (id, description) VALUES (2, 'Cartão de Débito')
+INSERT INTO payment_methods (id, description) VALUES (3, 'Dinheiro')
+INSERT INTO payment_methods (id, description) VALUES (4, 'Convenio')
+INSERT INTO payment_methods (id, description) VALUES (5, 'Pix')
