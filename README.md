@@ -19,7 +19,7 @@ Pedro Guedez - [@Pedroguedez](https://github.com/Pedroguedez)<br>
 ### Modelo Físico:
 Disponível aqui [dbdiagram.io](https://dbdiagram.io/d/648b9d0d722eb774940d197b)<br>
 Arquivo fonte: <code>[link pro arquivo](https://dbdiagram.io/d/6494d9d502bd1c4a5eeecf94)</code><br>
-<code>![image](https://github.com/julianocfelipe/db-fisioterapia/assets/129686037/a0ea9f38-2d1e-4080-9a5f-ad3f6008e51f)
+<code>![image](https://github.com/julianocfelipe/db-fisioterapia/assets/129686037/279967e4-9108-4985-b5da-c430bef52a58)
 </code>
   
 ### Dicionário de Dados:
