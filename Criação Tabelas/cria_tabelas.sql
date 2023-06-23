@@ -42,7 +42,7 @@ CREATE TABLE [schedules] (
   [body] text,
   [status] nvarchar(255) NOT NULL,
   [start_schedule] datetime,
-  [end_schedules] datetime[null],
+  [end_schedules] datetime,
   [physiotherapist_id] integer NOT NULL,
   [patients_id] integer NOT NULL,
   [services_id] integer NOT NULL,
