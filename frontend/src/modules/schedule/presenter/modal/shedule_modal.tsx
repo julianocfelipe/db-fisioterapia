@@ -7,6 +7,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import React, { useContext } from 'react';
 import { ScheduleContext } from '../store/schedule_store';
@@ -23,11 +24,15 @@ const ScheduleModal: React.FC = () => {
     <>
       <Modal isOpen={store.isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent
+          minW={'80vw'}
+          bg={useColorModeValue('#f5f4f9', '#121212')}
+          color={useColorModeValue('black', 'white')}
+        >
           <ModalHeader>Cadastro de Agendamento</ModalHeader>
           <ModalCloseButton />
-          <ModalBody minW={"80vw"}>
-            <RegisterForm/>
+          <ModalBody>
+            <RegisterForm />
           </ModalBody>
 
           <ModalFooter>
