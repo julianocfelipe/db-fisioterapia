@@ -18,11 +18,12 @@ Pedro Guedez - [@Pedroguedez](https://github.com/Pedroguedez)<br>
 
 ### Modelo Físico:
 Disponível aqui [dbdiagram.io](https://dbdiagram.io/d/648b9d0d722eb774940d197b)<br>
-Arquivo fonte: <code>link pro arquivo</code><br>
-<code>Imagem</code>
+Arquivo fonte: <code>[link pro arquivo](https://dbdiagram.io/d/6494d9d502bd1c4a5eeecf94)</code><br>
+<code>![image](https://github.com/julianocfelipe/db-fisioterapia/assets/129686037/930c84ad-325c-4c16-9297-de8261e8ba71)
+</code>
   
 ### Dicionário de Dados:
-<code>Excel ou tabela do Github (markdown)</code>
+<code>[Excel Dicionário de Dados](https://docs.google.com/spreadsheets/d/1phXG6EE9C7zEvXPEoYZQyaawydbmM0zH2jhMTZtDY78/edit#gid=1087835131)</code>
 
 ### Scripts DDL Criação do Database:
 Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
@@ -33,8 +34,9 @@ Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
 <code>1 arquivo SQL por objeto</code>
 
 ### Objetos de BD (stored procedure, triggers e functions):
-<code>1 arquivo SQL por objeto</code>
-  [trigger](TRIGGER.sql)
+<code>1 arquivo SQL por objeto</code> <br>
+  [Trigger](TRIGGER.sql) <br>
+  [Stored procedure](get_top_consultas_com_maiores_gastos.sql)<br>
 ### Código do sistema:
 Linguagem <br>
 <code>código fonte da aplicação</code>
