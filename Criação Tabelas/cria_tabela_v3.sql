@@ -43,8 +43,8 @@ CREATE TABLE [schedules] (
   [end_schedules] datetime,
   [physiotherapist_id] int,
   [patients_id] int,
-  [services_id] int,
-  [payments_methods_id] int,
+  [schedules_services_id] int,
+  [payments_methods_id] int UNIQUE,
   [schedules_status_id] int
 )
 GO
@@ -60,7 +60,7 @@ CREATE TABLE [payments] (
   [schedules_id] int,
   [payments_status_id] int,
   [payments_methods_id] int,
-  [payments_price] decimal(6,2)
+  [payments_service] int
 )
 GO
 
@@ -95,7 +95,7 @@ GO
 ALTER TABLE [schedules] ADD FOREIGN KEY ([patients_id]) REFERENCES [patients] ([id])
 GO
 
-ALTER TABLE [schedules] ADD FOREIGN KEY ([services_id]) REFERENCES [services] ([id])
+ALTER TABLE [schedules] ADD FOREIGN KEY ([schedules_services_id]) REFERENCES [services] ([id])
 GO
 
 ALTER TABLE [schedules] ADD FOREIGN KEY ([payments_methods_id]) REFERENCES [payments_methods] ([id])
@@ -110,10 +110,10 @@ GO
 ALTER TABLE [payments] ADD FOREIGN KEY ([payments_status_id]) REFERENCES [payments_status] ([id])
 GO
 
-ALTER TABLE [payments] ADD FOREIGN KEY ([payments_methods_id]) REFERENCES [schedules] ([payments_methods_id])
+ALTER TABLE [payments] ADD FOREIGN KEY ([payments_methods_id]) REFERENCES [schedules] ([id])
 GO
 
-ALTER TABLE [payments] ADD FOREIGN KEY ([payments_price]) REFERENCES [services] ([price])
+ALTER TABLE [payments] ADD FOREIGN KEY ([payments_service]) REFERENCES [services] ([id])
 GO
 
 ALTER TABLE [cancellation_reasons] ADD FOREIGN KEY ([schedules_id]) REFERENCES [schedules] ([id])
