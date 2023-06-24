@@ -23,7 +23,7 @@ Arquivo fonte: <code>[link pro arquivo](https://dbdiagram.io/d/6494d9d502bd1c4a5
 </code>
   
 ### Dicionário de Dados:
-<code>[Excel Dicionário de Dados](https://docs.google.com/spreadsheets/d/1phXG6EE9C7zEvXPEoYZQyaawydbmM0zH2jhMTZtDY78/edit#gid=1087835131)</code>
+<code>https://docs.google.com/spreadsheets/d/157XCVM7RQcxehNFT7iFgeyMihj5MiiaRYo9KvfXcuu8/edit?usp=sharing</code>
 
 ### Scripts DDL Criação do Database:
 Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
