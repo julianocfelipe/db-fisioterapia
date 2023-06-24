@@ -1,0 +1,5 @@
+INSERT INTO payments_status (description) VALUES ('Aguardando Pagamento')
+INSERT INTO payments_status (description) VALUES ('Negado')
+INSERT INTO payments_status (description) VALUES ('Pagamento Efetuado')
+INSERT INTO payments_status (description) VALUES ('Finalizado')
+INSERT INTO payments_status (description) VALUES ('Cancelado')

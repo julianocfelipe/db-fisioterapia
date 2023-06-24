@@ -1,0 +1,5 @@
+INSERT INTO schedules_status (description) VALUES ('Aguardando conformação')
+INSERT INTO schedules_status (description) VALUES ('Agendado')
+INSERT INTO schedules_status (description) VALUES ('Cancelado')
+INSERT INTO schedules_status (description) VALUES ('Finalizado')
+INSERT INTO schedules_status (description) VALUES ('Em atedimento')
