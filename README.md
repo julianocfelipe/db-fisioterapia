@@ -23,15 +23,17 @@ Arquivo fonte: <code>[link pro arquivo](https://dbdiagram.io/d/6494d9d502bd1c4a5
 </code>
   
 ### Dicionário de Dados:
-<code>[Disponível aqui]https://docs.google.com/spreadsheets/d/157XCVM7RQcxehNFT7iFgeyMihj5MiiaRYo9KvfXcuu8/edit?usp=sharing</code>
+<code>[Disponível aqui](https://docs.google.com/spreadsheets/d/157XCVM7RQcxehNFT7iFgeyMihj5MiiaRYo9KvfXcuu8/edit?usp=sharing)</code>
 
 ### Scripts DDL Criação do Database:
 Banco de dados utilizado SQL Server versão 2022 
-<code>[Disponível para download ](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)</code>
+<code>[Disponível para download ](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)
+[Criação das Tabelas](https://github.com/julianocfelipe/db-fisioterapia/tree/main/create_table)</code>
 
 ### Scripts Popula tabelas:
 Banco de dados utilizado SQL Server versão 2022 <br>
-<code>1 arquivo SQL por objeto</code>
+<code>1 arquivo SQL por objeto
+[Popula Tabelas](https://github.com/julianocfelipe/db-fisioterapia/tree/main/population)</code>
 
 ### Objetos de BD (stored procedure, triggers e functions):
 <code>1 arquivo SQL por objeto</code> <br>
