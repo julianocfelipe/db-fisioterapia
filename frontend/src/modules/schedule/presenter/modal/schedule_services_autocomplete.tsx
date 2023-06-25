@@ -11,7 +11,7 @@ interface ScheduleServicesAutocompleteDTO {
   error: string | null;
 }
 
-const ScheduleServicesAutocomplete: React.FC = () => {
+const ScheduleServicesAutocomplete: React.FC<any> = (props) => {
   const store = useStore<ScheduleServicesAutocompleteDTO>({
     loading: false,
     services: [
@@ -42,7 +42,7 @@ const ScheduleServicesAutocomplete: React.FC = () => {
 
   return (
     <Flex gap={2} direction={'column'}>
-      <Box maxW={'md'} w={'md'}>
+      <Box w="100%">
         <AutoComplete openOnFocus onChange={selectValue}>
           <AutoCompleteInput
             padding={4}

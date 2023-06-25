@@ -1,9 +1,0 @@
-{
-  "devDependencies": {
-    "@types/node": "^20.3.1"
-  },
-  "dependencies": {
-    "@choc-ui/chakra-autocomplete": "^5.1.5",
-    "@fullcalendar/interaction": "^6.1.8"
-  }
-}

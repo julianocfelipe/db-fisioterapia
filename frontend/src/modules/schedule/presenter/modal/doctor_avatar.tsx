@@ -47,11 +47,6 @@ const DoctorAvatar: React.FC<Props> = ({ doctor }) => {
       padding={4}
       w="100%"
     >
-      {
-        loading 
-        ? <SkeletonText mt='0' noOfLines={1} spacing='4' skeletonHeight='2' />
-        : <StatLabel>{doctor.name}</StatLabel>
-      }
       <StatNumber h="96px" my={2}>
         <Box
           as="div"
@@ -75,11 +70,17 @@ const DoctorAvatar: React.FC<Props> = ({ doctor }) => {
           <Avatar src={doctor.image_directory} size="full" position="absolute" top={0} onLoad={onFinishToLoadImage} />
         </Box>
       </StatNumber>
-      {
-        loading
-        ? <SkeletonText mt='0' noOfLines={1} spacing='4' skeletonHeight='2' />
-        : <StatHelpText>{doctor.phone}</StatHelpText> 
-      }
+
+      {loading ? (
+        <SkeletonText mt="0" noOfLines={1} spacing="4" skeletonHeight="2" />
+      ) : (
+        <StatLabel>{doctor.name}</StatLabel>
+      )}
+      {loading ? (
+        <SkeletonText mt="0" noOfLines={1} spacing="4" skeletonHeight="2" />
+      ) : (
+        <StatHelpText>{doctor.phone}</StatHelpText>
+      )}
     </Stat>
   );
 };

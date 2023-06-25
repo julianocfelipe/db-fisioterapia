@@ -11,8 +11,6 @@ const CalendarPage: React.FC = () => {
   const store = useContext(ScheduleContext);
 
   const onClickInDay = (info: any) => {
-    console.log('On click event', info);
-
     store.isOpen = true;
   };
 

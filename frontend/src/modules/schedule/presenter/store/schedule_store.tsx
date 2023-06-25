@@ -1,24 +1,19 @@
 import { useStore } from '@/modules/shared/patterns/Store';
 import React, { createContext } from 'react';
+import Schedule from '../../domain/entity/schedule.entity';
 
-interface Store {
-  isOpen: boolean;
-  step: number;
-  progress: number;
+class Store {
+  isOpen = false;
+  step = 1;
+  progress = 33.33;
+  schedules: Schedule[] = [];
+  selected_date = new Date();
 }
 
-const ScheduleContext = createContext<Store>({
-  isOpen: false,
-  step: 1,
-  progress: 33.33,
-});
+const ScheduleContext = createContext<Store>(new Store());
 
 const ScheduleProvider: React.FC<any> = ({ children }) => {
-  const store = useStore<Store>({
-    isOpen: false,
-    step: 1,
-    progress: 33.33,
-  });
+  const store = useStore<Store>(new Store());
 
   return <ScheduleContext.Provider value={store}>{children}</ScheduleContext.Provider>;
 };

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {
   Box,
   Button,
@@ -9,52 +10,76 @@ import {
   ModalHeader,
   ModalOverlay,
   Progress,
-  Slide,
-  SlideFade,
   useColorModeValue,
 } from '@chakra-ui/react';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ScheduleContext } from '../store/schedule_store';
 import RegisterForm from './register_form';
 import ClientForm from './client_form';
+import AddressForm from './address_form';
+import { useForm } from 'react-hook-form';
+import Schedule from '../../domain/entity/schedule.entity';
 
 const ScheduleModal: React.FC = () => {
   const store = useContext(ScheduleContext);
 
-  const onClose = () => {
+  const form = useForm<Schedule>({ defaultValues: { ...new Schedule() } });
+
+  useEffect(() => {
+    form.setValue('date', Schedule.serializeDate(store.selected_date));
+
+    console.log('tamo aqui', store.selected_date, form.getValues());
+  }, [store.selected_date]);
+
+  const closeModal = () => {
     store.isOpen = false;
     store.step = 1;
-    store.progress = 45;
+    store.progress = 33.33;
+  };
+
+  const onReturn = () => {
+    if (store.step == 1) {
+      closeModal();
+      return;
+    }
+
+    store.step -= 1;
+    store.progress = (store.step - 1) * 33.33;
   };
 
   const onContinue = () => {
-    if (store.step == 2) {
-      store.isOpen = false;
+    if (store.step == 3) {
+      closeModal();
       return;
     }
 
     store.step += 1;
-    console.log(store.progress, '1', store.step);
-    store.progress = (store.step + 1) * 45;
-    console.log(store.progress, '2');
+    store.progress = (store.step + 1) * 33.33;
+  };
+
+  const onSubmit = (values: any) => {
+    console.log('tamo aqui, values', values);
   };
 
   const renderStep = () => {
     switch (store.step) {
       case 1:
-        return <RegisterForm />;
+        return <RegisterForm form={form} />;
 
       case 2:
-        return <ClientForm />;
+        return <ClientForm form={form} />;
+
+      case 3:
+        return <AddressForm form={form} />;
 
       default:
-        return <RegisterForm />;
+        return <RegisterForm form={form} />;
     }
   };
 
   return (
     <>
-      <Modal isOpen={store.isOpen} onClose={onClose}>
+      <Modal isOpen={store.isOpen} onClose={closeModal}>
         <ModalOverlay />
         <ModalContent
           minW={'70vw'}
@@ -64,18 +89,20 @@ const ScheduleModal: React.FC = () => {
           <ModalHeader>Cadastro de Agendamento</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Box>
-              <Progress isAnimated value={store.progress} size="sm" />
-              {renderStep()}
+            <Box width={'100%'}>
+              <form onSubmit={form.handleSubmit(onSubmit)}>
+                <Progress isAnimated value={store.progress} size="sm" />
+                {renderStep()}
+              </form>
             </Box>
           </ModalBody>
 
           <ModalFooter>
-            <Button variant="ghost" mr={3} onClick={onClose}>
-              Cancelar
+            <Button variant="ghost" mr={3} onClick={onReturn}>
+              {store.step == 1 ? 'Cancelar' : 'Voltar'}
             </Button>
             <Button colorScheme="red" onClick={onContinue}>
-              {store.step == 2 ? 'Registrar' : 'Continuar'}
+              {store.step == 3 ? 'Registrar' : 'Continuar'}
             </Button>
           </ModalFooter>
         </ModalContent>

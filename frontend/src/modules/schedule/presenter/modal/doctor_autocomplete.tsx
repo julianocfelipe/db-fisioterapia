@@ -46,7 +46,7 @@ const DoctorAutocomplete: React.FC = () => {
 
   return (
     <Flex gap={2} direction={'column'}>
-      <Box maxW={'md'} w={'md'}>
+      <Box w="100%">
         <AutoComplete openOnFocus onChange={selectDoctor}>
           <AutoCompleteInput
             padding={4}
