@@ -23,11 +23,11 @@ Arquivo fonte: <code>[link pro arquivo](https://dbdiagram.io/d/6494d9d502bd1c4a5
 </code>
   
 ### Dicionário de Dados:
-<code>https://docs.google.com/spreadsheets/d/157XCVM7RQcxehNFT7iFgeyMihj5MiiaRYo9KvfXcuu8/edit?usp=sharing</code>
+<code>[Disponível aqui]https://docs.google.com/spreadsheets/d/157XCVM7RQcxehNFT7iFgeyMihj5MiiaRYo9KvfXcuu8/edit?usp=sharing</code>
 
 ### Scripts DDL Criação do Database:
 Banco de dados utilizado SQL Server versão 2022 
-<code>[Disponível em ](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)</code>
+<code>[Disponível para download ](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)</code>
 
 ### Scripts Popula tabelas:
 Banco de dados utilizado SQL Server versão 2022 <br>
