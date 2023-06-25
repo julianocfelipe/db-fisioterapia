@@ -32,14 +32,7 @@ const DoctorAutocomplete: React.FC = () => {
         image_directory: 'https://this-person-does-not-exist.com/img/avatar-gen1146e5095bd800ddda1d7d06eebcbd51.jpg',
       },
     ],
-    selected: {
-      id: 1,
-      name: 'Fisioterapeuta William',
-      cpf: '999.999.999-99',
-      crf: 'CFMAEdFATD',
-      phone: '(48) 99651-7030',
-      image_directory: 'https://this-person-does-not-exist.com/img/avatar-gen92f376c1bed17f77e7fc4cad13871b8e.jpg',
-    },
+    selected: null,
     error: null,
   });
 

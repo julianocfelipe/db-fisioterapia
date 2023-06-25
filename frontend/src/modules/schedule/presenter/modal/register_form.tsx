@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Box, FormControl, FormLabel, Input, Stack } from '@chakra-ui/react';
 import DoctorAutocomplete from './doctor_autocomplete';
-import DoctorAvatar from './doctor_avatar';
+import ScheduleServicesAutocomplete from './schedule_services_autocomplete';
 
 const RegisterForm: React.FC = () => {
   return (
@@ -12,6 +12,10 @@ const RegisterForm: React.FC = () => {
             <FormControl id="schedule_date" w={'md'} mx={'md'}>
               <FormLabel>Data do Agendamento</FormLabel>
               <Input placeholder="Selecione uma data" size="md" type="datetime-local" />
+            </FormControl>
+            <FormControl id="service">
+              <FormLabel>Serviço</FormLabel>
+              <ScheduleServicesAutocomplete />
             </FormControl>
             <FormControl id="doctor">
               <FormLabel>Fisioterapeuta</FormLabel>
