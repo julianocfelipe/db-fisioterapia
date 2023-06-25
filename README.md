@@ -26,11 +26,11 @@ Arquivo fonte: <code>[link pro arquivo](https://dbdiagram.io/d/6494d9d502bd1c4a5
 <code>https://docs.google.com/spreadsheets/d/157XCVM7RQcxehNFT7iFgeyMihj5MiiaRYo9KvfXcuu8/edit?usp=sharing</code>
 
 ### Scripts DDL Criação do Database:
-Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
-<code>1 arquivo SQL por objeto</code>
+Banco de dados utilizado SQL Server versão 2022 
+<code>[Disponível em ](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)</code>
 
 ### Scripts Popula tabelas:
-Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
+Banco de dados utilizado SQL Server versão 2022 <br>
 <code>1 arquivo SQL por objeto</code>
 
 ### Objetos de BD (stored procedure, triggers e functions):
