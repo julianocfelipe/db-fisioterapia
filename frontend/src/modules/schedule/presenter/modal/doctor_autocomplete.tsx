@@ -7,11 +7,16 @@ import DoctorAvatar from './doctor_avatar';
 interface DoctorAutocompleteDTO {
   loading: boolean;
   doctors: Doctor[];
-  selected: Doctor | null;
   error: string | null;
 }
 
-const DoctorAutocomplete: React.FC = () => {
+interface Props {
+  onChange: any;
+  ref: any;
+  value: any;
+}
+
+const DoctorAutocomplete: React.FC<Props> = ({ onChange, ref, value }) => {
   const store = useStore<DoctorAutocompleteDTO>({
     loading: false,
     doctors: [
@@ -32,7 +37,6 @@ const DoctorAutocomplete: React.FC = () => {
         image_directory: 'https://this-person-does-not-exist.com/img/avatar-gen1146e5095bd800ddda1d7d06eebcbd51.jpg',
       },
     ],
-    selected: null,
     error: null,
   });
 
@@ -41,7 +45,7 @@ const DoctorAutocomplete: React.FC = () => {
       return doctor.id == doctorId;
     });
 
-    store.selected = ({ ...result } as Doctor) || null;
+    onChange(result);
   };
 
   return (
@@ -53,7 +57,7 @@ const DoctorAutocomplete: React.FC = () => {
             minWidth={300}
             w={'100%'}
             bg={'transparent'}
-            value={store.selected?.name || ''}
+            value={value?.name || ''}
             border={useColorModeValue('1px solid #E2E8F0', '1px solid rgba(255,255,255,0.16)')}
             borderRadius={4}
           />
@@ -68,7 +72,7 @@ const DoctorAutocomplete: React.FC = () => {
       </Box>
 
       <Box maxW={'lg'} w={'lg'}>
-        {!store.selected || <DoctorAvatar doctor={store.selected} />}
+        {!value || <DoctorAvatar doctor={value} />}
       </Box>
     </Flex>
   );

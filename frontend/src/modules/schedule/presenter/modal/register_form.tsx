@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Box, FormControl, FormLabel, Input, Stack } from '@chakra-ui/react';
 import DoctorAutocomplete from './doctor_autocomplete';
 import ScheduleServicesAutocomplete from './schedule_services_autocomplete';
-import { UseFormReturn } from 'react-hook-form';
+import { Controller, UseFormReturn } from 'react-hook-form';
 import Schedule from '../../domain/entity/schedule.entity';
 
 interface Props {
@@ -21,16 +21,29 @@ const RegisterForm: React.FC<Props> = ({ form }) => {
                 placeholder="Selecione uma data"
                 size="md"
                 type="datetime-local"
-                {...form.register('date', { required: true })}
+                {...form.register('start_date', { required: true })}
               />
             </FormControl>
             <FormControl id="service" w="94%">
               <FormLabel>Serviço</FormLabel>
-              <ScheduleServicesAutocomplete {...form.register('service')} />
+              <Controller
+                name={'service'}
+                control={form.control}
+                render={({ field: { onChange, value, ref } }) => (
+                  <ScheduleServicesAutocomplete onChange={onChange} value={value} ref={ref} />
+                )}
+              />
             </FormControl>
             <FormControl id="doctor" w="94%" {...form.register('doctor')}>
               <FormLabel>Fisioterapeuta</FormLabel>
-              <DoctorAutocomplete />
+
+              <Controller
+                name={'doctor'}
+                control={form.control}
+                render={({ field: { onChange, value, ref } }) => (
+                  <DoctorAutocomplete onChange={onChange} value={value} ref={ref} />
+                )}
+              />
             </FormControl>
           </Stack>
         </Box>

@@ -1,19 +1,24 @@
 import Doctor from './doctor.entity';
 import Patient from './patient.entity';
 import ServiceType from './service_type.entity';
+import { DateTime } from 'luxon';
 
 export default class Schedule {
-  date: string;
+  date: Date;
+  start_date: string;
+  end_date: string;
   service: ServiceType;
   doctor: Doctor;
   patient: Patient;
 
   // format date to yyyy-mm-ddThh:mm
-  static serializeDate(date: Date) {
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
+  static toControllerDate(date: Date) {
+    const serializedDate = DateTime.fromJSDate(date).toFormat('yyyy-MM-ddTHH:mm');
 
-    return `${year}-${month}-${day}T00:00`;
+    return serializedDate;
+  }
+
+  static fromControllerDate(date: string): Date {
+    return new Date(Date.parse(date));
   }
 }

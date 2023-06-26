@@ -26,9 +26,12 @@ const ScheduleModal: React.FC = () => {
   const form = useForm<Schedule>({ defaultValues: { ...new Schedule() } });
 
   useEffect(() => {
-    form.setValue('date', Schedule.serializeDate(store.selected_date));
+    setTimeout(() => {
+      const date = Schedule.toControllerDate(store.selected_date);
+      console.log('aqui dentro', date);
 
-    console.log('tamo aqui', store.selected_date, form.getValues());
+      form.setValue('start_date', date);
+    }, 1000);
   }, [store.selected_date]);
 
   const closeModal = () => {
@@ -49,7 +52,7 @@ const ScheduleModal: React.FC = () => {
 
   const onContinue = () => {
     if (store.step == 3) {
-      closeModal();
+      onSubmit(form.getValues());
       return;
     }
 
@@ -57,8 +60,14 @@ const ScheduleModal: React.FC = () => {
     store.progress = (store.step + 1) * 33.33;
   };
 
-  const onSubmit = (values: any) => {
-    console.log('tamo aqui, values', values);
+  const onSubmit = (value: Schedule) => {
+    value.date = Schedule.fromControllerDate(value.start_date);
+
+    console.log(value);
+
+    store.schedules.push(value);
+
+    closeModal();
   };
 
   const renderStep = () => {

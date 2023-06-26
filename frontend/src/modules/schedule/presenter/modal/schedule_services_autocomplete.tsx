@@ -7,11 +7,16 @@ import ServiceType from '../../domain/entity/service_type.entity';
 interface ScheduleServicesAutocompleteDTO {
   loading: boolean;
   services: ServiceType[];
-  selected: ServiceType | null;
   error: string | null;
 }
 
-const ScheduleServicesAutocomplete: React.FC<any> = (props) => {
+interface Props {
+  onChange: any;
+  ref: any;
+  value: any;
+}
+
+const ScheduleServicesAutocomplete: React.FC<Props> = ({ onChange, ref, value }) => {
   const store = useStore<ScheduleServicesAutocompleteDTO>({
     loading: false,
     services: [
@@ -28,7 +33,6 @@ const ScheduleServicesAutocomplete: React.FC<any> = (props) => {
         name: 'Sessão de Quiropraxia',
       },
     ],
-    selected: null,
     error: null,
   });
 
@@ -37,7 +41,7 @@ const ScheduleServicesAutocomplete: React.FC<any> = (props) => {
       return `${item.id}` == `${id}`;
     });
 
-    store.selected = ({ ...result } as ServiceType) || null;
+    onChange(result);
   };
 
   return (
@@ -49,7 +53,8 @@ const ScheduleServicesAutocomplete: React.FC<any> = (props) => {
             minWidth={300}
             w={'100%'}
             bg={'transparent'}
-            value={store.selected?.name || ''}
+            value={value?.name || ''}
+            ref={ref}
             border={useColorModeValue('1px solid #E2E8F0', '1px solid rgba(255,255,255,0.16)')}
             borderRadius={4}
           />
