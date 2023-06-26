@@ -40,6 +40,7 @@ Banco de dados utilizado SQL Server versão 2022 <br>
   [Trigger Start](TTRIGGER_start_v3.sql) <br>
   [Trigger End](TTRIGGER_end_v3.sql) <br>
   [Stored procedure](get_top_consultas_com_maiores_gastos.sql)<br>
+  [Function](FUNCTION.sql)<br>
 ### Código do sistema:
 Linguagem <br>
 <code>código fonte da aplicação</code>
