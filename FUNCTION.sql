@@ -11,6 +11,3 @@ BEGIN
     RETURN @lastScheduleDate;
 END;
 
-
-
-drop function GetLastScheduleDate
