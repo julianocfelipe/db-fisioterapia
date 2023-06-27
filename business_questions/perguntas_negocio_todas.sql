@@ -75,7 +75,7 @@ WHERE Physiotherapist_id = [id_fisioterapeuta]
 Após a criação de índices:
 
 CREATE NONCLUSTERED INDEX idx_Schedules_Physiotherapist_StartSchedule
-ON Schedules (Physiotherapist_id, Start_Schedule);
+ON Schedules (Physiotherapist_id, start_service);
 
 SELECT COUNT(*) AS TotalAgendamentos
 FROM Schedules WITH (INDEX(idx_Schedules_Physiotherapist_StartSchedule))
