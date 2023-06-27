@@ -1,9 +1,9 @@
 CREATE TABLE [payments] (
-  [id] int PRIMARY KEY IDENTITY(1, 1),
-  [schedules_id] int,
-  [payments_status_id] int,
-  [payments_methods_id] int,
-  [payments_service] int
+  [id] int PRIMARY KEY NOT NULL IDENTITY(1, 1),
+  [schedules_id] int NOT NULL,
+  [payments_status_id] int NOT NULL,
+  [payments_methods_id] int NOT NULL,
+  [payments_service] int NOT NULL
 )
 GO
 

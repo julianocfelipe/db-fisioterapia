@@ -1,12 +1,13 @@
 CREATE TABLE [schedules] (
-  [id] int PRIMARY KEY IDENTITY(1, 1),
-  [start_schedule] datetime,
-  [end_schedules] datetime,
-  [physiotherapist_id] int,
-  [patients_id] int,
-  [schedules_services_id] int,
-  [payments_methods_id] int UNIQUE,
-  [schedules_status_id] int
+  [id] int PRIMARY KEY NOT NULL IDENTITY(1, 1),
+  [start_service] datetime,
+  [end_service] datetime,
+  [schedule_date] datetime NOT NULL,
+  [physiotherapist_id] int NOT NULL,
+  [patients_id] int NOT NULL,
+  [schedules_services_id] int NOT NULL,
+  [payments_methods_id] int UNIQUE NOT NULL,
+  [schedules_status_id] int NOT NULL
 )
 GO
 
