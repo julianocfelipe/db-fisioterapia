@@ -70,7 +70,7 @@ Antes da criação de índices:
 SELECT COUNT(*) AS TotalAgendamentos
 FROM Schedules
 WHERE Physiotherapist_id = [id_fisioterapeuta]
-  AND Start_Schedule BETWEEN '2023-01-01' AND '2023-12-31';
+  AND Start_service BETWEEN '01-01-2023' AND '31-12-2023';
 
 Após a criação de índices:
 
@@ -80,4 +80,4 @@ ON Schedules (Physiotherapist_id, start_service);
 SELECT COUNT(*) AS TotalAgendamentos
 FROM Schedules WITH (INDEX(idx_Schedules_Physiotherapist_StartSchedule))
 WHERE Physiotherapist_id = [id_fisioterapeuta]
-  AND Start_Schedule BETWEEN '2023-01-01' AND '2023-12-31';
+  AND Start_service BETWEEN '01-01-2023' AND '31-12-2023';
