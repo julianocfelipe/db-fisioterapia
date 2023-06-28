@@ -7,7 +7,7 @@ const Config = axios.create({
       'Access-Control-Allow-Origin': '*',
     },
   },
-  baseURL: 'https://brasilapi.com.br/api',
+  baseURL: 'http://localhost:3000/',
 
   transformResponse: [
     function (data) {

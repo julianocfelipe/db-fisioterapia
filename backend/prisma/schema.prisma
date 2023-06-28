@@ -1,0 +1,109 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model addresses {
+  id               Int                @id(map: "PK__addresse__3213E83F555F919C") @default(autoincrement())
+  cep              String             @db.Char(8)
+  state            String             @db.VarChar(15)
+  city             String             @db.VarChar(15)
+  neighbourhood    String?            @db.VarChar(15)
+  number           String?            @db.VarChar(10)
+  complement       String?            @db.VarChar(100)
+  street        String             @db.VarChar(50)
+  patients         patients[]
+  physiotherapists physiotherapists[]
+}
+
+model cancellation_reasons {
+  id           Int       @id(map: "PK__cancella__3213E83F76670AF9") @default(autoincrement())
+  description  String    @db.VarChar(20)
+  schedules_id Int
+  schedules    schedules @relation(fields: [schedules_id], references: [id], onUpdate: NoAction, map: "FK__cancellat__sched__5441852A")
+}
+
+model patients {
+  id         Int         @id(map: "PK__patients__3213E83F5A7CFAAE") @default(autoincrement())
+  name       String      @db.VarChar(50)
+  birthday   DateTime    @db.Date
+  cpf        String      @db.Char(11)
+  gender     String      @db.Char(1)
+  address_id Int
+  addresses  addresses   @relation(fields: [address_id], references: [id], onUpdate: NoAction, map: "FK__patients__addres__49C3F6B7")
+  schedules  schedules[]
+}
+
+model payments {
+  id                                                Int             @id(map: "PK__payments__3213E83FE380C321") @default(autoincrement())
+  schedules_id                                      Int
+  payments_status_id                                Int
+  payments_methods_id                               Int
+  payments_service                                  Int
+  payments_status                                   payments_status @relation(fields: [payments_status_id], references: [id], onUpdate: NoAction, map: "FK__payments__paymen__5165187F")
+  schedules_payments_payments_methods_idToschedules schedules       @relation("payments_payments_methods_idToschedules", fields: [payments_methods_id], references: [id], onUpdate: NoAction, map: "FK__payments__paymen__52593CB8")
+  services                                          services        @relation(fields: [payments_service], references: [id], onUpdate: NoAction, map: "FK__payments__paymen__534D60F1")
+  schedules_payments_schedules_idToschedules        schedules       @relation("payments_schedules_idToschedules", fields: [schedules_id], references: [id], onUpdate: NoAction, map: "FK__payments__schedu__5070F446")
+}
+
+model payments_methods {
+  id          Int        @id(map: "PK__payments__3213E83F8C1D6F6A") @default(autoincrement())
+  description String     @db.VarChar(50)
+  schedules   schedules?
+}
+
+model payments_status {
+  id          Int        @id(map: "PK__payments__3213E83F60D9177C") @default(autoincrement())
+  description String     @db.VarChar(20)
+  payments    payments[]
+}
+
+model physiotherapists {
+  id         Int         @id(map: "PK__physioth__3213E83FDD6EC105") @default(autoincrement())
+  name       String      @db.VarChar(100)
+  cpf        String      @db.Char(11)
+  crf        String      @db.VarChar(15)
+  phone      String      @db.VarChar(20)
+  image_url      String      @db.VarChar(300)
+  address_id Int
+  addresses  addresses   @relation(fields: [address_id], references: [id], onUpdate: NoAction, map: "FK__physiothe__addre__4AB81AF0")
+  schedules  schedules[]
+}
+
+model schedules {
+  id                                               Int                    @id(map: "PK__schedule__3213E83F6999E6BE") @default(autoincrement())
+  start_service                                    DateTime?              @db.DateTime
+  end_service                                      DateTime?              @db.DateTime
+  schedule_date                                    DateTime               @db.DateTime
+  physiotherapist_id                               Int
+  patients_id                                      Int
+  schedules_services_id                            Int
+  payments_methods_id                              Int                    @unique(map: "UQ__schedule__1419B35DE83017EA")
+  schedules_status_id                              Int
+  cancellation_reasons                             cancellation_reasons[]
+  payments_payments_payments_methods_idToschedules payments[]              @relation("payments_payments_methods_idToschedules")
+  payments_payments_schedules_idToschedules        payments[]             @relation("payments_schedules_idToschedules")
+  patients                                         patients               @relation(fields: [patients_id], references: [id], onUpdate: NoAction, map: "FK__schedules__patie__4CA06362")
+  payments_methods                                 payments_methods       @relation(fields: [payments_methods_id], references: [id], onUpdate: NoAction, map: "FK__schedules__payme__4E88ABD4")
+  physiotherapists                                 physiotherapists       @relation(fields: [physiotherapist_id], references: [id], onUpdate: NoAction, map: "FK__schedules__physi__4BAC3F29")
+  services                                         services               @relation(fields: [schedules_services_id], references: [id], onUpdate: NoAction, map: "FK__schedules__sched__4D94879B")
+  schedules_status                                 schedules_status       @relation(fields: [schedules_status_id], references: [id], onUpdate: NoAction, map: "FK__schedules__sched__4F7CD00D")
+}
+
+model schedules_status {
+  id          Int         @id(map: "PK__schedule__3213E83FCBC3972D") @default(autoincrement())
+  description String      @db.VarChar(20)
+  schedules   schedules[]
+}
+
+model services {
+  id          Int         @id(map: "PK__services__3213E83F45E439C7") @default(autoincrement())
+  description String      @db.VarChar(50)
+  price       Decimal     @db.Decimal(6, 2)
+  payments    payments[]
+  schedules   schedules[]
+}

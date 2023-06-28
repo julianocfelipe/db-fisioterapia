@@ -7,6 +7,7 @@ import ptLocale from '@fullcalendar/core/locales/pt-br';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 import '../fullcalendar_override.scss';
 import { ScheduleContext } from '@/modules/schedule/presenter/store/schedule_store';
+import ScheduleService from '../../infra/services/schedule.service';
 
 const CalendarPage: React.FC = () => {
   const store = useContext(ScheduleContext);
@@ -16,15 +17,27 @@ const CalendarPage: React.FC = () => {
     store.selected_date = info.date;
   };
 
+  const loadSchedules = async () => {
+    const schedules = await ScheduleService.build().index({});
+
+    store.schedules = schedules || [];
+  };
+
   useEffect(() => {
     console.log('useEffect', store.schedules);
   }, [store.schedules]);
 
+  useEffect(() => {
+    loadSchedules();
+  }, []);
+
   function renderEventContent(eventInfo) {
     return (
       <>
-        <b>{eventInfo.timeText}</b>
-        <i>{eventInfo.event.title}</i>
+        <div>
+          <b>{eventInfo.timeText}</b>
+          <i>{eventInfo.event.title}</i>
+        </div>
       </>
     );
   }
