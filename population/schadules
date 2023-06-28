@@ -1,1 +1,0 @@
-INSERT INTO schedules (id, title, body, status, start_time, start_end, physiotherapist_id, patient_id, service_id, payment_id) VALUES ('', '')

@@ -19,23 +19,28 @@ Pedro Guedez - [@Pedroguedez](https://github.com/Pedroguedez)<br>
 ### Modelo Físico:
 Disponível aqui [dbdiagram.io](https://dbdiagram.io/d/648b9d0d722eb774940d197b)<br>
 Arquivo fonte: <code>[link pro arquivo](https://dbdiagram.io/d/6494d9d502bd1c4a5eeecf94)</code><br>
-<code>![image](https://github.com/julianocfelipe/db-fisioterapia/assets/129686037/930c84ad-325c-4c16-9297-de8261e8ba71)
+<code>![image](https://github.com/julianocfelipe/db-fisioterapia/assets/129686037/f144a833-b771-4e94-9b3e-e13ab372e859)
 </code>
   
 ### Dicionário de Dados:
-<code>[Excel Dicionário de Dados](https://docs.google.com/spreadsheets/d/1phXG6EE9C7zEvXPEoYZQyaawydbmM0zH2jhMTZtDY78/edit#gid=1087835131)</code>
+<code>[Disponível aqui](https://docs.google.com/spreadsheets/d/157XCVM7RQcxehNFT7iFgeyMihj5MiiaRYo9KvfXcuu8/edit?usp=sharing)</code>
 
 ### Scripts DDL Criação do Database:
-Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
-<code>1 arquivo SQL por objeto</code>
+Banco de dados utilizado SQL Server versão 2022 
+<code>[Disponível para download ](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)
+[Criação das Tabelas](https://github.com/julianocfelipe/db-fisioterapia/tree/main/create_table)</code>
 
 ### Scripts Popula tabelas:
-Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
-<code>1 arquivo SQL por objeto</code>
+Banco de dados utilizado SQL Server versão 2022 <br>
+<code>1 arquivo SQL por objeto
+[Popula Tabelas](https://github.com/julianocfelipe/db-fisioterapia/tree/main/population)</code>
 
 ### Objetos de BD (stored procedure, triggers e functions):
-<code>1 arquivo SQL por objeto</code>
-  [trigger](TRIGGER.sql)
+<code>1 arquivo SQL por objeto</code> <br>
+  [Trigger Start](TTRIGGER_start_v3.sql) <br>
+  [Trigger End](TTRIGGER_end_v3.sql) <br>
+  [Stored procedure](get_top_consultas_com_maiores_gastos.sql)<br>
+  [Function](FUNCTION.sql)<br>
 ### Código do sistema:
 Linguagem <br>
 <code>código fonte da aplicação</code>
