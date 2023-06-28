@@ -1,22 +1,39 @@
-INSERT INTO addresses (cep, state, city, neighbourhood, number, complement, reference) VALUES ('88820000', 'SC', 'Içara',    'Habitar Brasil', '1432', 'Ap 403',   'Prédio azul')
-INSERT INTO addresses (cep, state, city, neighbourhood, number, complement, reference) VALUES ('88820000', 'SC', 'Içara',    'Mieira',         '221',  '',         'Casa verde' )
-INSERT INTO addresses (cep, state, city, neighbourhood, number, complement, reference) VALUES ('88820000', 'SC', 'Içara',    'São José',       '543',  'Sobrado',  'Casa azul' )
-INSERT INTO addresses (cep, state, city, neighbourhood, number, complement, reference) VALUES ('88801006', 'SC', 'Criciúma', 'Artur Lundgren', '2345', 'Travesa',  '' )
-INSERT INTO addresses (cep, state, city, neighbourhood, number, complement, reference) VALUES ('88820000', 'SC', 'Içara',    'Cassino',        '623',  'Ap 802 B', 'Na frente dos Correios' )
-INSERT INTO addresses (cep, state, city, neighbourhood, number, complement, reference) VALUES ('88801003', 'SC', 'Criciúma', 'Piranga',        '324',  '',         'Na frente ao bar do Zeca' )
-INSERT INTO addresses (cep, state, city, neighbourhood, number, complement, reference) VALUES ('88820000', 'SC', 'Içara',    'Jardim',         '522',  'Fundos',   'Casa cinza' )
-INSERT INTO addresses (cep, state, city, neighbourhood, number, complement, reference) VALUES ('88801008', 'SC', 'Criciúma', 'Ponta Negra',    '5623', 'Ap 201',   'Prédio verde e branco' )
-INSERT INTO addresses (cep, state, city, neighbourhood, number, complement, reference) VALUES ('88820000', 'SC', 'Içara',    'São Jorge',      '253',  '',         'Casa amarela' )
-INSERT INTO addresses (cep, state, city, neighbourhood, number, complement, reference) VALUES ('88801007', 'SC', 'Içara',    'Arruda',         '734',  'Ap 303',   '' )
+INSERT INTO db_fisio_oficial.dbo.addresses
+(id, cep, state, city, neighbourhood, [number], complement, street)
+VALUES(1, '88806555', 'SC', 'Criciúma', 'Pinheirinho', '108', '', 'Rua Lauro Pedro Dias');
 
+INSERT INTO db_fisio_oficial.dbo.addresses
+(cep, state, city, neighbourhood, number, complement, street)
+VALUES('88805223', 'SC', 'Criciúma', 'Santa Augusta', '35', '', 'Rua Lidia Maria José Maçaneiro');
 
-UPDATE addresses SET cep = '88820000' state = 'SC' city = 'Içara'    WHERE id = 
-UPDATE addresses SET cep = '88820000' state = 'SC' city = 'Içara'    WHERE id = 
-UPDATE addresses SET cep = '88820000' state = 'SC' city = 'Içara'    WHERE id = 
-UPDATE addresses SET cep = '88801006' state = 'SC' city = 'Criciúma' WHERE id = 
-UPDATE addresses SET cep = '88820000' state = 'SC' city = 'Içara'    WHERE id = 
-UPDATE addresses SET cep = '88801003' state = 'SC' city = 'Criciúma' WHERE id = 
-UPDATE addresses SET cep = '88820000' state = 'SC' city = 'Içara'    WHERE id = 
-UPDATE addresses SET cep = '88801008' state = 'SC' city = 'Criciúma' WHERE id = 
-UPDATE addresses SET cep = '88820000' state = 'SC' city = 'Içara'    WHERE id =     
-UPDATE addresses SET cep = '88801007' state = 'SC' city = 'Içara'    WHERE id =   
+INSERT INTO db_fisio_oficial.dbo.addresses
+(cep, state, city, neighbourhood, number, complement, street)
+VALUES('88819035', 'SC', 'Criciúma', 'Vila Miguel', '22', '', 'Rua Manoel de Abreu');
+
+INSERT INTO db_fisio_oficial.dbo.addresses
+(cep, state, city, neighbourhood, number, complement, street)
+VALUES('88819250', 'SC', 'Criciúma', '', '100', '', 'Rua José Colombo');
+
+INSERT INTO db_fisio_oficial.dbo.addresses
+(cep, state, city, neighbourhood, number, complement, street)
+VALUES('88805530', 'SC', 'Criciúma', 'São Francisco', '22', '', 'Rua Luiz Alves');
+
+INSERT INTO db_fisio_oficial.dbo.addresses
+(cep, state, city, neighbourhood, number, complement, street)
+VALUES('88805505', 'SC', 'Criciúma', 'São Francisco', '2001', '', 'Avenida dos Italianos');
+
+INSERT INTO db_fisio_oficial.dbo.addresses
+(cep, state, city, neighbourhood, number, complement, street)
+VALUES('88810172', 'SC', 'Criciúma', 'Lote Seis', '808', '', 'Rua Fagundes Varela');
+
+INSERT INTO db_fisio_oficial.dbo.addresses
+(cep, state, city, neighbourhood, number, complement, street)
+VALUES('88805247', 'SC', 'Criciúma', 'Lote Seis', '801', 'Proximo ao Posto', 'Rua José Hercílio Alano');
+
+INSERT INTO db_fisio_oficial.dbo.addresses
+(cep, state, city, neighbourhood, number, complement, street)
+VALUES('88804460', 'SC', 'Criciúma', 'Pinheirinho', '456', '', 'Rua Eugênio Tessmann');
+
+INSERT INTO db_fisio_oficial.dbo.addresses
+(cep, state, city, neighbourhood, number, complement, street)
+VALUES('88819246', 'SC', 'Criciúma', 'Colonial', 'S/N', 'Na frente da 769', 'Rua Valentim Pizzolo');
