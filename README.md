@@ -44,8 +44,3 @@ Banco de dados utilizado SQL Server versão 2022 <br>
 ### Código do sistema:
 Linguagem <br>
 <code>código fonte da aplicação</code>
-
-![exemplo](images/1.jpg)
-![exemplo](images/2.jpg)
-![exemplo](images/3.jpg)
-![exemplo](images/4.jpg)
