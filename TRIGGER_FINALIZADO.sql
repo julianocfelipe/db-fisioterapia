@@ -1,12 +1,13 @@
 /*Muda o status_status_ir para 4 (Finalizado)*/
 CREATE TRIGGER alterScheduleStatusFinalizado ON schedules
-AFTER INSERT
+AFTER UPDATE
 AS
 BEGIN
-    IF (SELECT inserted.end_service FROM inserted) IS NOT NULL
+    IF UPDATE(end_service)
     BEGIN
         UPDATE schedules
-        SET schedules_status_id = 4
-        WHERE id = (SELECT inserted.end_service FROM inserted);
+        SET schedules.schedules_status_id = 4
+        FROM schedules
+        INNER JOIN inserted on inserted.id = schedules.id;
     END;
 END;
