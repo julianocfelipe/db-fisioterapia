@@ -12,8 +12,7 @@ BEGIN
 	AND schedules.id in (
 		SELECT payments.schedules_id
 			FROM payments 
-				INNER JOIN payments_status on payments.payments_status_id = payments_status.id 
-		WHERE payments_status.description = 'Finalizado'
+		WHERE payments_status_id = 10
 	) 
 	ORDER BY services.price DESC
 END
