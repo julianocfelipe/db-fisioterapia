@@ -6,7 +6,7 @@ BEGIN
     IF (SELECT inserted.start_schedule FROM inserted) IS NOT NULL
     BEGIN
         UPDATE schedules
-        SET schedules_status_id = 7
+        SET schedules_status_id = 3
         WHERE id = (SELECT inserted.start_schedule FROM inserted);
     END;
 END;
