@@ -1,12 +1,13 @@
 /*Muda o status_status_id para 3 (Em andamento)*/
 CREATE TRIGGER alterScheduleStatusEmAndamento ON schedules
-AFTER INSERT
+AFTER UPDATE
 AS
 BEGIN
-    IF (SELECT inserted.start_service FROM inserted) IS NOT NULL
+    IF UPDATE(start_service)
     BEGIN
         UPDATE schedules
-        SET schedules_status_id = 3
-        WHERE id = (SELECT inserted.start_service FROM inserted);
+        SET schedules.schedules_status_id = 3
+        FROM schedules
+        INNER JOIN inserted on inserted.id = schedules.id;
     END;
 END;
