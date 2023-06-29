@@ -3,10 +3,10 @@ CREATE TRIGGER alterScheduleStatusEmAndamento ON schedules
 AFTER INSERT
 AS
 BEGIN
-    IF (SELECT inserted.start_schedule FROM inserted) IS NOT NULL
+    IF (SELECT inserted.start_service FROM inserted) IS NOT NULL
     BEGIN
         UPDATE schedules
         SET schedules_status_id = 3
-        WHERE id = (SELECT inserted.start_schedule FROM inserted);
+        WHERE id = (SELECT inserted.start_service FROM inserted);
     END;
 END;
