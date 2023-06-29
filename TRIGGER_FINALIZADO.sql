@@ -1,4 +1,4 @@
-/*Muda o status_status_ir para 5 (Finalizado)*/
+/*Muda o status_status_ir para 4 (Finalizado)*/
 CREATE TRIGGER alterScheduleStatusFinalizado ON schedules
 AFTER INSERT
 AS
