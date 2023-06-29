@@ -1,4 +1,4 @@
-/*Muda o status_status_id para 7 (Em andamento)*/
+/*Muda o status_status_id para 3 (Em andamento)*/
 CREATE TRIGGER alterScheduleStatusEmAndamento ON schedules
 AFTER INSERT
 AS
