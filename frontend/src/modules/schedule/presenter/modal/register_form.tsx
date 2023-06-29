@@ -29,8 +29,8 @@ const RegisterForm: React.FC<Props> = ({ form }) => {
               <Controller
                 name={'service'}
                 control={form.control}
-                render={({ field: { onChange, value, ref } }) => (
-                  <ScheduleServicesAutocomplete onChange={onChange} value={value} ref={ref} />
+                render={({ field: { onChange, value } }) => (
+                  <ScheduleServicesAutocomplete onChange={onChange} value={value} />
                 )}
               />
             </FormControl>
@@ -40,8 +40,8 @@ const RegisterForm: React.FC<Props> = ({ form }) => {
               <Controller
                 name={'doctor'}
                 control={form.control}
-                render={({ field: { onChange, value, ref } }) => (
-                  <DoctorAutocomplete onChange={onChange} value={value} ref={ref} />
+                render={({ field: { onChange, value } }) => (
+                  <DoctorAutocomplete onChange={onChange} value={value} />
                 )}
               />
             </FormControl>

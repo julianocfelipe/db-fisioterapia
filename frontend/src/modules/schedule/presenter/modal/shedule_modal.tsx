@@ -63,11 +63,14 @@ const ScheduleModal: React.FC = () => {
   const onSubmit = (value: Schedule) => {
     value.date = Schedule.fromControllerDate(value.start_date);
 
-    console.log(value);
-
-    store.schedules.push(value);
-
-    closeModal();
+    try {
+      store.schedules.push(value);
+  
+      closeModal();
+      
+    } catch (error) {
+       console.error(error);
+    }
   };
 
   const renderStep = () => {
@@ -110,7 +113,7 @@ const ScheduleModal: React.FC = () => {
             <Button variant="ghost" mr={3} onClick={onReturn}>
               {store.step == 1 ? 'Cancelar' : 'Voltar'}
             </Button>
-            <Button colorScheme="red" onClick={onContinue}>
+            <Button colorScheme="pink" onClick={onContinue}>
               {store.step == 3 ? 'Registrar' : 'Continuar'}
             </Button>
           </ModalFooter>

@@ -1,4 +1,4 @@
 export default class ServiceType {
-    name: string;
+    description: string;
     id: number;
 }

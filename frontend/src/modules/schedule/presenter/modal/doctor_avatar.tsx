@@ -36,6 +36,7 @@ const DoctorAvatar: React.FC<Props> = ({ doctor }) => {
 	`;
 
   const onFinishToLoadImage = () => {
+    console.log('aqui');
     setLoading(false);
   };
 

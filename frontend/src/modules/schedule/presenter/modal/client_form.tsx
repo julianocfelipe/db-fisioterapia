@@ -29,11 +29,11 @@ const ClientForm: React.FC<Props> = ({ form }) => {
 
         <FormControl id="phone" w="94%">
           <FormLabel>Telefone</FormLabel>
-          <Input {...form.register('patient.phone')} as={InputMask} mask="(99) 99999-9999" maskChar={null} />
+          <Input {...form.register('patient.phone')} as={InputMask} mask="(99) 99999-9999" name="phone" maskChar={null} />
         </FormControl>
 
         <FormControl id="email" w="94%">
-          <FormLabel htmlFor="email">Email address</FormLabel>
+          <FormLabel htmlFor="email">Email</FormLabel>
           <Input {...form.register('patient.email')} id="email" type="email" />
         </FormControl>
 
@@ -58,7 +58,7 @@ const ClientForm: React.FC<Props> = ({ form }) => {
 
           <FormControl id="birth" w="94%" flex={1} mr="6%">
             <FormLabel>Data de Nascimento</FormLabel>
-            <Input {...form.register('patient.birthdate')} type="date" size={'md'} placeholder="" />
+            <Input {...form.register('patient.birthdate')} name="birthday" type="date" size={'md'} placeholder="" />
           </FormControl>
         </Flex>
       </Stack>

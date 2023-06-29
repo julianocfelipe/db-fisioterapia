@@ -3,9 +3,7 @@ import qs from 'qs';
 
 const Config = axios.create({
   headers: {
-    post: {
-      'Access-Control-Allow-Origin': '*',
-    },
+    'Access-Control-Allow-Origin': '*',
   },
   baseURL: 'http://localhost:3000/',
 

@@ -2,7 +2,7 @@
   &-toolbar-title {
     font-family: monospace;
     font-weight: 900;
-    color: #ff433a;
+    color: #ff5080;
   }
 
   &-col-header-cell {
@@ -15,9 +15,9 @@
   }
 
   &-button {
-    color: red !important;
+    color: #ff5080 !important;
     background: transparent !important;
-    border: 1px solid red !important;
+    border: 1px solid #ff5080 !important;
   }
 }
 
@@ -36,7 +36,7 @@
 }
 
 .fc-dark {
-  border-color: red !important;
+  border-color: #ff5080 !important;
 
   .fc-day {
     &-sun,
@@ -50,6 +50,6 @@
   }
 
   .fc-day-today {
-    background-color: #e53e3e !important;
+    background-color: #ff5080 !important;
   }
 }

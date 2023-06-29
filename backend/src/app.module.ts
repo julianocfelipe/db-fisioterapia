@@ -8,5 +8,6 @@ import ScheduleModule from './schedule/schedule.module';
   imports: [ScheduleModule],
   controllers: [AppController],
   providers: [AppService, PrismaService],
+  exports: [],
 })
 export class AppModule {}
