@@ -1,5 +1,4 @@
 INSERT INTO db_fisio_oficial.dbo.payments_status 
-
 (description) 
 VALUES ('Aguardando Pagamento')
 

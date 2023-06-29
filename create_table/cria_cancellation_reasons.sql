@@ -1,6 +1,6 @@
 CREATE TABLE [cancellation_reasons] (
   [id] int PRIMARY KEY NOT NULL IDENTITY(1, 1),
-  [description] varchar(20) NOT NULL,
+  [description] varchar(100) NOT NULL,
   [schedules_id] int NOT NULL
 )
 GO
