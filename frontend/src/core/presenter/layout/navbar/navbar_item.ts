@@ -12,7 +12,7 @@ const NAVIGATION_ITEMS: Array<NavItem> = [
       {
         label: 'Lista de Agendamentos',
         sublabel: 'Todos os agendamentos do mês',
-        href: '#',
+        href: '/',
       },
       {
         label: 'Registrar agendamento',
@@ -27,7 +27,7 @@ const NAVIGATION_ITEMS: Array<NavItem> = [
       {
         label: 'Agendamentos VS realizados',
         sublabel: 'Todos os agendamentos e serviços realizados',
-        href: '#',
+        href: '/report',
       },
       {
         label: 'Relatório de Receita',
