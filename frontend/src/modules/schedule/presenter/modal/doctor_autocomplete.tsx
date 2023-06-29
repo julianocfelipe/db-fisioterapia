@@ -19,7 +19,17 @@ interface Props {
 const DoctorAutocomplete: React.FC<Props> = ({ onChange, value }) => {
   const store = useStore<DoctorAutocompleteDTO>({
     loading: false,
-    doctors: [],
+    doctors: [
+      {
+        name: "Selecione",
+        id: 0,
+        cpf: "",
+        crf: "",
+        image_url: "",
+        phone: "",
+        address_id: 0,
+      }
+    ],
     error: null,
   });
 
@@ -35,7 +45,7 @@ const DoctorAutocomplete: React.FC<Props> = ({ onChange, value }) => {
     try {
       const result = await DoctorService.build().index({});
 
-      store.doctors = result;
+      store.doctors = [...store.doctors, ...result];
     } catch (error) {
       console.error(error);
     }

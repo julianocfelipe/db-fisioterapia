@@ -4,16 +4,14 @@ import ServiceType from './service_type.entity';
 import { DateTime } from 'luxon';
 
 export default class Schedule {
-  date: Date;
-  start_date: string;
-  end_date: string;
+  schedule_date: string;
   service: ServiceType;
   doctor: Doctor;
   patient: Patient;
 
   // format date to yyyy-mm-ddThh:mm
-  static toControllerDate(date: Date) {
-    const serializedDate = DateTime.fromJSDate(date).toFormat('yyyy-MM-ddTHH:mm');
+  static toControllerDate(date: Date): string {
+    const serializedDate = DateTime.fromJSDate(date).toFormat("yyyy-MM-dd'T'HH:mm");
 
     return serializedDate;
   }

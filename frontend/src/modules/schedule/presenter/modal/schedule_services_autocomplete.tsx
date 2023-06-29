@@ -18,7 +18,9 @@ interface Props {
 const ScheduleServicesAutocomplete: React.FC<Props> = ({ onChange, value }) => {
   const store = useStore<ScheduleServicesAutocompleteDTO>({
     loading: false,
-    services: [],
+    services: [
+      {description: "Selecione", id: 0,}
+    ],
     error: null,
   });
 
@@ -32,7 +34,7 @@ const ScheduleServicesAutocomplete: React.FC<Props> = ({ onChange, value }) => {
     try {
       const result = await ScheduleServicesService.build().index({});
 
-      store.services = result;
+      store.services = [...store.services, ...result];
     } catch (error) {
       console.error(error);
     }

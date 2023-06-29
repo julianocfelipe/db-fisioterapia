@@ -7,6 +7,6 @@ export default class Doctor {
   crf: string;
   phone: string;
   address_id?: number;
-  image_directory: string;
+  image_url: string;
   address?: Address;
 }

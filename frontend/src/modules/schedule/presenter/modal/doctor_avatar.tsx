@@ -22,6 +22,10 @@ const DoctorAvatar: React.FC<Props> = ({ doctor }) => {
   const size = '96px';
   const color = 'teal';
 
+  if (!doctor.id) {
+    return <div></div>;
+  }
+
   const pulseRing = keyframes`
 	0% {
     transform: scale(0.33);
@@ -36,7 +40,6 @@ const DoctorAvatar: React.FC<Props> = ({ doctor }) => {
 	`;
 
   const onFinishToLoadImage = () => {
-    console.log('aqui');
     setLoading(false);
   };
 
@@ -68,7 +71,7 @@ const DoctorAvatar: React.FC<Props> = ({ doctor }) => {
             animation: loading ? `1.25s ${pulseRing} cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite` : '',
           }}
         >
-          <Avatar src={doctor.image_directory} size="full" position="absolute" top={0} onLoad={onFinishToLoadImage} />
+          <Avatar src={doctor.image_url} size="full" position="absolute" top={0} onLoad={onFinishToLoadImage} />
         </Box>
       </StatNumber>
 

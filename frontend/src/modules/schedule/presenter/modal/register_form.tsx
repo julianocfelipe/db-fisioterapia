@@ -21,7 +21,8 @@ const RegisterForm: React.FC<Props> = ({ form }) => {
                 placeholder="Selecione uma data"
                 size="md"
                 type="datetime-local"
-                {...form.register('start_date', { required: true })}
+                {...form.register('schedule_date', { required: true })}
+                onChange={console.log}
               />
             </FormControl>
             <FormControl id="service" w="94%">

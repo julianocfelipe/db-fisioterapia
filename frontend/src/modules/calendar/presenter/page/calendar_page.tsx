@@ -8,13 +8,18 @@ import { Box, useColorModeValue } from '@chakra-ui/react';
 import '../fullcalendar_override.scss';
 import { ScheduleContext } from '@/modules/schedule/presenter/store/schedule_store';
 import ScheduleService from '../../infra/services/schedule.service';
+import useConstructor from '@/modules/shared/patterns/Constructor';
+import Schedule from '@/modules/schedule/domain/entity/schedule.entity';
 
 const CalendarPage: React.FC = () => {
   const store = useContext(ScheduleContext);
 
   const onClickInDay = (info: any) => {
     store.isOpen = true;
-    store.selected_date = info.date;
+    store.schedule_date = Schedule.toControllerDate(info.date);
+    store.submitting = false;
+    store.success = false;
+    store.error = '';
   };
 
   const loadSchedules = async () => {
@@ -23,13 +28,9 @@ const CalendarPage: React.FC = () => {
     store.schedules = schedules || [];
   };
 
-  useEffect(() => {
-    console.log('useEffect', store.schedules);
-  }, [store.schedules]);
-
-  useEffect(() => {
+  useConstructor(() => {
     loadSchedules();
-  }, []);
+  });
 
   function renderEventContent(eventInfo) {
     return (
@@ -52,7 +53,7 @@ const CalendarPage: React.FC = () => {
           eventContent={renderEventContent}
           dateClick={onClickInDay}
           events={store.schedules.map((schedule) => {
-            const result = { title: schedule.patient.name, date: schedule.date };
+            const result = { title: schedule.patient.name, date: schedule.schedule_date };
 
             return result;
           })}

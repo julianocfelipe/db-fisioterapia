@@ -17,7 +17,7 @@ const ClientForm: React.FC<Props> = ({ form }) => {
           Informações do Paciente
         </Heading>
 
-        <FormControl id="cpf" w="94%">
+        <FormControl w="94%">
           <FormLabel>CPF</FormLabel>
           <Input {...form.register('patient.cpf')} as={InputMask} mask="999.999.999-99" maskChar={null} />
         </FormControl>
@@ -27,9 +27,9 @@ const ClientForm: React.FC<Props> = ({ form }) => {
           <Input {...form.register('patient.name')} />
         </FormControl>
 
-        <FormControl id="phone" w="94%">
+        <FormControl w="94%">
           <FormLabel>Telefone</FormLabel>
-          <Input {...form.register('patient.phone')} as={InputMask} mask="(99) 99999-9999" name="phone" maskChar={null} />
+          <Input {...form.register('patient.phone')} as={InputMask} mask="(99) 99999-9999" maskChar={null} />
         </FormControl>
 
         <FormControl id="email" w="94%">
@@ -42,23 +42,20 @@ const ClientForm: React.FC<Props> = ({ form }) => {
             <FormLabel>Gênero</FormLabel>
             <Select
               {...form.register('patient.gender')}
-              id="gender"
-              name="Genêro"
-              autoComplete="gender"
               placeholder="Selecione o gênero"
               shadow="sm"
               size="md"
               w="full"
               rounded="md"
             >
-              <option>Masculino</option>
-              <option>Feminino</option>
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
             </Select>
           </FormControl>
 
           <FormControl id="birth" w="94%" flex={1} mr="6%">
             <FormLabel>Data de Nascimento</FormLabel>
-            <Input {...form.register('patient.birthdate')} name="birthday" type="date" size={'md'} placeholder="" />
+            <Input {...form.register('patient.birthday')} type="date" size={'md'} placeholder="" />
           </FormControl>
         </Flex>
       </Stack>

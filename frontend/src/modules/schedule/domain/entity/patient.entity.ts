@@ -6,7 +6,7 @@ export default class Patient {
   phone: string;
   email?: string;
   gender: string;
-  birthdate: Date;
+  birthday: Date;
   cpf: string;
   address_id?: number;
   address?: Address;

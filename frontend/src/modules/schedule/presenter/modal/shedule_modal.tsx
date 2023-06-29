@@ -19,6 +19,8 @@ import ClientForm from './client_form';
 import AddressForm from './address_form';
 import { useForm } from 'react-hook-form';
 import Schedule from '../../domain/entity/schedule.entity';
+import ScheduleService from '../../infra/http/schedule.service';
+import ScheduleSubmitIndicator from './schedule_submit_indicator';
 
 const ScheduleModal: React.FC = () => {
   const store = useContext(ScheduleContext);
@@ -26,18 +28,16 @@ const ScheduleModal: React.FC = () => {
   const form = useForm<Schedule>({ defaultValues: { ...new Schedule() } });
 
   useEffect(() => {
-    setTimeout(() => {
-      const date = Schedule.toControllerDate(store.selected_date);
-      console.log('aqui dentro', date);
-
-      form.setValue('start_date', date);
-    }, 1000);
-  }, [store.selected_date]);
+    form.setValue('schedule_date', store.schedule_date);
+  }, [store.isOpen]);
 
   const closeModal = () => {
     store.isOpen = false;
     store.step = 1;
     store.progress = 33.33;
+    store.error = '';
+    store.success = false;
+    store.submitting = false;
   };
 
   const onReturn = () => {
@@ -60,20 +60,31 @@ const ScheduleModal: React.FC = () => {
     store.progress = (store.step + 1) * 33.33;
   };
 
-  const onSubmit = (value: Schedule) => {
-    value.date = Schedule.fromControllerDate(value.start_date);
-
+  const onSubmit = async (value: Schedule) => {
     try {
-      store.schedules.push(value);
-  
-      closeModal();
-      
+      store.submitting = true;
+
+      const result = await ScheduleService.build().send(value);
+
+      store.schedules.push(result);
+
+      store.success = true;
     } catch (error) {
-       console.error(error);
+      console.error(error);
+      store.error = "Houve um erro ao tentar registrar o agendamento. Por favor tente novamente mais tarde";
+    } finally {
+      store.submitting = false;
+
+      setTimeout(() => {
+        closeModal();
+      }, 2000);
     }
   };
 
   const renderStep = () => {
+    if (store.submitting || store.success || store.error)
+      return <ScheduleSubmitIndicator success={store.success} error={store.error} loading={store.submitting} />;
+
     switch (store.step) {
       case 1:
         return <RegisterForm form={form} />;
@@ -103,7 +114,12 @@ const ScheduleModal: React.FC = () => {
           <ModalBody>
             <Box width={'100%'}>
               <form onSubmit={form.handleSubmit(onSubmit)}>
-                <Progress isAnimated value={store.progress} size="sm" />
+                <Progress
+                  isAnimated
+                  value={store.progress}
+                  size="sm"
+                  display={store.submitting || store.success || store.error ? 'none' : 'block'}
+                />
                 {renderStep()}
               </form>
             </Box>
