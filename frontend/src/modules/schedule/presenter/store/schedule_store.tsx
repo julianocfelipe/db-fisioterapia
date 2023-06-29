@@ -4,10 +4,13 @@ import Schedule from '../../domain/entity/schedule.entity';
 import { DateTime } from 'luxon';
 
 class Store {
-  isOpen = false;
-  step = 1;
-  progress = 33.33;
   schedules: Schedule[] = [];
+  loading = false;
+  
+  // modal information
+  step = 1;
+  isOpen = false;
+  progress = 33.33;
   schedule_date = DateTime.now().toFormat("yyyy-MM-dd'T'hh:mm");
   submitting = false;
   success = false;

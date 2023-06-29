@@ -66,7 +66,7 @@ const ScheduleModal: React.FC = () => {
 
       const result = await ScheduleService.build().send(value);
 
-      store.schedules.push(result);
+      store.schedules.push(value);
 
       store.success = true;
     } catch (error) {
@@ -118,6 +118,7 @@ const ScheduleModal: React.FC = () => {
                   isAnimated
                   value={store.progress}
                   size="sm"
+                  colorScheme='red'
                   display={store.submitting || store.success || store.error ? 'none' : 'block'}
                 />
                 {renderStep()}

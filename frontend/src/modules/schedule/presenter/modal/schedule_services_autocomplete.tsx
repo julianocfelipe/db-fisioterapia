@@ -25,7 +25,7 @@ const ScheduleServicesAutocomplete: React.FC<Props> = ({ onChange, value }) => {
   });
 
   const handleChange = (event) => {
-    const service = store.services.find((service) => service.id === event.target.value);
+    const service = store.services.find((service) => `${service.id}` === `${event.target.value}`);
 
     onChange(service);
   };

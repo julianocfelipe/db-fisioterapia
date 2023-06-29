@@ -1,16 +1,15 @@
 import { Body, Controller, Get, HttpStatus, Post, Res } from '@nestjs/common';
-import ScheduleService from '../services/schedule.service';
+
 import { ScheduleDTO } from '../domain/dto/schedule.dto';
 import { PrismaService } from 'src/core/prisma.service';
 import { Response } from 'express';
+import { ScheduleStatus } from '../domain/enum/schedule_status.enum';
+import { DateTime } from 'luxon';
 import FormatterHelper from 'src/shared/helpers/formatter.helper';
 
 @Controller('schedules')
 export default class ScheduleController {
-  constructor(
-    private readonly scheduleService: ScheduleService,
-    private readonly prismaService: PrismaService,
-  ) {}
+  constructor(private readonly prismaService: PrismaService) {}
 
   @Post()
   async createSchedule(
@@ -32,25 +31,51 @@ export default class ScheduleController {
         },
       });
 
+      const birthday = DateTime.fromFormat(
+        schedule.patient.birthday,
+        'yyyy-MM-dd',
+      );
+
       const patient = await this.prismaService.patients.create({
         data: {
-          birthday: schedule.patient.birthday,
+          birthday: birthday.toJSDate(),
           cpf: FormatterHelper.removeSpecialCharacters(schedule.patient.cpf),
           gender: schedule.patient.gender,
           name: schedule.patient.name,
-          address_id: address.id,
-        },
+          phone: FormatterHelper.removeSpecialCharacters(
+            schedule.patient.phone,
+          ),
+          email: schedule.patient.email,
+          addresses: {
+            connect: {
+              id: address.id,
+            },
+          },
+        } as any,
       });
 
       const result = await this.prismaService.schedules.create({
         data: {
-          schedule_date: schedule.schedule_date,
-          physiotherapist_id: schedule.doctor.id,
-          patient_id: patient.id,
+          schedule_date: DateTime.fromFormat(
+            schedule.schedule_date,
+            `yyyy-MM-dd'T'hh:mm`,
+          ).toJSDate(),
+          physiotherapists: {
+            connect: { id: schedule.doctor.id },
+          },
+          patients: {
+            connect: { id: patient.id },
+          },
+          schedules_status: {
+            connect: { id: ScheduleStatus.SCHEDULED },
+          },
+          services: {
+            connect: { id: schedule.service.id },
+          },
         } as any,
       });
 
-      return result;
+      response.send(result);
     } catch (error) {
       console.error('ScheduleController::createSchedule', error);
       response
@@ -60,8 +85,15 @@ export default class ScheduleController {
   }
 
   @Get()
-  async getSchedules(request: Request, response: Response) {
-    const result = await this.scheduleService.getSchedules();
+  async getSchedules() {
+    const result = await this.prismaService.schedules.findMany({
+      include: {
+        patients: true,
+        services: true,
+        schedules_status: true,
+        physiotherapists: true,
+      },
+    });
 
     return result;
   }

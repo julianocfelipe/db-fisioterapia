@@ -20,4 +20,9 @@ export interface ScheduleDTO {
     };
   };
   schedule_date: string;
+  service: {
+    id: number;
+    description: string;
+    price: number;
+  };
 }
