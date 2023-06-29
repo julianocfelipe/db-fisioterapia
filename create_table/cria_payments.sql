@@ -3,7 +3,6 @@ CREATE TABLE [payments] (
   [schedules_id] int NOT NULL,
   [payments_status_id] int NOT NULL,
   [payments_methods_id] int NOT NULL,
-  [payments_service] int NOT NULL
 )
 GO
 
