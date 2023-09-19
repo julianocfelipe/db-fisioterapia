@@ -11,3 +11,4 @@ BEGIN
         INNER JOIN inserted on inserted.id = schedules.id;
     END;
 END;
+------
